@@ -20,11 +20,10 @@ enum GameResult {
     Draw = 3,
 }
 
-//changes for part 2
+//changed for part 2
 fn parse_games(input: String) -> Vec<(RPS, GameResult)> {
     let games = input.lines().map(|line| {
         let mut parts = line.split(" ");
-        println!("parts: {:?}", parts);
         
         let player1 = match parts.next().unwrap() {
             "A" => RPS::Rock,
