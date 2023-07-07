@@ -2,11 +2,6 @@
 use std::collections::HashSet;
 
 fn main() {
-    // let bytes = "aaabcczABCZ".as_bytes();
-    // let bytesv: Vec<u16> = vec![96, 95, 97, 122, 123, 124, 63, 64, 65, 90, 91, 92];
-    // let string = String::from_utf8(bytesv).unwrap();
-    // println!("String: {}", string);
-    // println!("{:?}", bytes);
     let TEST_PATH = "C:/rust/advent_2022/day3/src/test/test_input.txt";
     let PATH = "C:/rust/advent_2022/day3/src/test/challenge_input1.txt";
     let input = std::fs::read_to_string(PATH).unwrap();
@@ -28,7 +23,6 @@ fn main() {
         })
         .collect::<Vec<&Item>>();
 
-    // println!("Priority sum: {}", priority_sum);
     println!("Result: {:?}", result);
     let result_priority_sum = result.iter().fold(0, |acc, item| acc + item.priority);
     println!("Result priority sum: {}", result_priority_sum);
