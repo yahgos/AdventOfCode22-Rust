@@ -1,4 +1,5 @@
 fn main() {
+    let start_time = std::time::Instant::now();
     let INPUT = "C:/rust/advent_2022/day4/input/input.txt";
     let TEST_INPUT = "C:/rust/advent_2022/day4/input/test_input.txt";
     let input = std::fs::read_to_string(INPUT).unwrap();
@@ -8,10 +9,11 @@ fn main() {
     for pair in elves_pairs {
         if pair.is_overlap() {
             fully_contained_sum += 1;
-            println!("fully_contained: {:?}", pair);
         }
     }
     println!("sum: {:?}", fully_contained_sum);
+    let end_time = std::time::Instant::now();
+    println!("Time: {:?}", end_time - start_time);
 }
 
 fn parse_input(input: String) -> Vec<elves_pair> {
@@ -44,6 +46,8 @@ impl elves_pair {
         let section1 = &self.0;
         let section2 = &self.1;
 
-        return !(section2.0 > section1.1 || section1.0 > section2.1)
+        return !(section2.0 > section1.1 || section1.0 > section2.1);
     }
 }
+
+
