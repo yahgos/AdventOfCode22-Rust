@@ -73,6 +73,7 @@ impl Port {
                     crates_to_move.push(source_stack.pop().unwrap());
                 }
             }
+            //different scopes will let me borrow the value again
             {
                 let dest_stack = &mut self.ship_stacks[instruction.dest as usize - 1];
                 //remove rev() for part 1
