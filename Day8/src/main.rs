@@ -22,18 +22,10 @@ struct Forest {
 
 impl Forest {
     fn run_quadcopter(&mut self) -> u32 {
-        // let mut rows = self.grid.iter_mut();
-        // let mut row = rows.next();
-        let max_width = self.grid.len();
-        let max_depth = self.grid[0].len();
         let mut count = 0;
-        let mut edge_counter = 0;
         let mut current_highest_scenic_score = 0;
-        for i in 0..max_width {
-            for j in 0..max_depth {
-                if i == 0 || j == 0 || i == self.size.0 - 1 || j == self.size.1 - 1 {
-                    edge_counter += 1;
-                }
+        for i in 0..self.size.0 {
+            for j in 0..self.size.1 {
                 if check_visibility(self, i, j) {
                     self.grid[i][j].is_visible = true;
                     count += 1;
